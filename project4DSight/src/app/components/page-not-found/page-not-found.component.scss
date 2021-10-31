@@ -1,0 +1,11 @@
+@import "src/styles";
+
+.container{
+    @include container;
+    .status-message{
+        font-size: 2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        background-color: var(--error-background-color);
+    }
+}

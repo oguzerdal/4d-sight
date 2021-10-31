@@ -1,0 +1,11 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <h1 class="title">Login</h1>
+        <div class="status-message" [class.success-background]="isLoginSuccess" [class.error-background]="!isLoginSuccess" >
+            {{successStatus}}
+        </div>
+        <input type="text" name="username" id="" [(ngModel)]="username" placeholder="Username" >
+        <button (click)="onSubmit()" type="submit">Login</button>
+    </form>
+</div>
+

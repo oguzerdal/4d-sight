@@ -1,0 +1,68 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+:root{
+    //colors
+
+    --background-color:#F3F3F3;
+    --secondary-background-color:white;
+    --button-background-color:#0b56bf;
+    --button-color:white;
+    --passive-button-color:#C3D8ED;
+    --hover-button-color:#1873DF;
+    --title-color:#0b56bf;
+    --error-background-color:#CC0000;
+    --success-background-color:#28a745;
+    --delete-background-color:#CC0000;
+    --hover-delete-color:#F47174;
+
+}
+
+
+//breakpoints
+$bp-small:576px;
+
+@mixin button($width:12rem) {
+    background: var(--button-background-color);
+    color: var(--button-color);
+    border: 0;
+    cursor: pointer;
+    box-shadow: 8px 10px 14px rgba(20, 78, 104, 0.08);
+    width: $width;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+    margin-top: .5rem;
+    &:disabled{
+        background-color: var(--passive-button-color);
+    }
+    &:hover{
+        background: var(--hover-button-color);
+    }
+}
+
+@mixin input($width:11.5rem){
+    height: 2rem;
+    width: $width;
+}
+@mixin  title {
+    color: var(--title-color);
+    font-weight: 400;
+    font-size: 1.25rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+@mixin text {
+    
+}
+@mixin container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--background-color);
+    
+}

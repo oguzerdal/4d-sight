@@ -1,0 +1,53 @@
+<div class="container">
+    <nav class="navigation-buttons">
+        <button class="button" routerLink="/home">Home page</button>
+        <button class="button" routerLink="/login" (click)="logout()">Logout</button>
+    </nav>
+    <main>
+        <h1 class="title">User list</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; index as i">
+                    <td *ngIf="toggle != i">{{user.name}}</td>
+                    <td *ngIf="toggle != i">{{user.role}}</td>
+                    <td *ngIf="toggle != i"> <button class="button" (click)="editUser(user,i)"> Edit</button></td>
+                    <td *ngIf="toggle != i"> <button class="button delete" (click)="deleteUser(user)">Delete</button>
+                    </td>
+                    <td *ngIf="toggle == i"><input type="text" required [(ngModel)]="updatedUserName"></td>
+                    <td *ngIf="toggle == i"><select id="cars" [(ngModel)]="updatedUserRole">
+                            <option *ngIf="role == 'superadmin' " value="superadmin">superadmin</option>
+                            <option value="admin">admin</option>
+                            <option value="customer" selected>customer</option>
+                        </select></td>
+                    <td *ngIf="toggle == i"> <button class="button" (click)="saveChanges()">Save</button></td>
+                    <td *ngIf="toggle == i"> <button class="button delete" (click)="editCancel()">Cancel</button></td>    
+                    <td *ngIf="toggle == i"><input type="text" hidden [(ngModel)]="updatedUserId"></td>
+                </tr>
+                <button (click)="addUser()" class="button">Add User</button>
+            </tbody>
+        </table>
+        <div class="dialog" *ngIf="displayDialog">
+            <div class="dialog-content">
+                <div class="input-fields">
+                    <input type="text" name="" required [(ngModel)]="userName">
+                    <select id="cars" [(ngModel)]="userRole">
+                        <option *ngIf="role == 'superadmin'" value="superadmin">Superadmin</option>
+                        <option value="admin">Admin</option>
+                        <option value="customer" selected>customer</option>
+                    </select>
+                </div>
+                <div class="dialog-buttons">
+                    <button (click)="addUser()" class="button">Add User</button>
+                    <button (click)="addCancel()" class="button delete">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

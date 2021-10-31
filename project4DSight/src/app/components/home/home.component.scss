@@ -1,0 +1,33 @@
+@import "src/styles";
+
+.container{
+    @include container;
+    justify-content: space-around;
+    background-color: var(--secondary-background-color);
+    main{
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+        width: 60%;
+        align-items: center;
+        img{
+            text-align: center;
+            @media screen and (max-width: $bp-small) { 
+                transform: scale(0.7);
+            }
+        }
+        article{
+            margin: 1rem
+        }
+        h1{
+            @include title();
+            text-align: center;
+        }
+    }
+    button{
+        @include button($width:15rem);
+        @media screen and (max-width: $bp-small) { 
+            transform: scale(0.5);
+        }
+    }
+}
